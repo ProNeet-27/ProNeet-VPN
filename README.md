@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Logo_blanco.png" alt="ProNeet VPN Logo" width="180"/>
+  <img src="favicon.png" alt="ProNeet VPN Logo" width="180"/>
 </p>
 
 # 🛡️ ProNeet VPN
@@ -19,13 +19,16 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 ## 📸 Capturas de pantalla
 
-| Pantalla principal | Configuración |
-|--------------------|----------------|----------------|
-| ![Captura 1](captura1.jpg) | ![Captura 2](captura2.jpg) | ![Captura 3](captura3.jpg) |  
+| Pantalla principal |
+| ![Captura 1](captura1.jpg) |
 
-> Puedes subir más capturas si lo deseas. Solo agrega nuevas filas a la tabla.
+| Configuración | 
+![Captura 2](captura2.jpg) 
 
----
+|Registro|
+| ![Captura 3](captura3.jpg) |  
+
+
 
 ## 📡 Redes y contacto
 
