@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ProNeet</title>
+  <title>ProNeet VPN</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
@@ -14,27 +14,31 @@
       font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      text-align: center;
     }
 
     header {
-      position: absolute;
-      top: 0;
-      width: 100%;
       background-color: #0a0a0a;
       padding: 15px;
       font-size: 1.8rem;
       font-weight: bold;
       color: #00ff99;
       box-shadow: 0 0 10px rgba(0,255,153,0.2);
+      text-align: center;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
     }
 
     h1 {
       font-size: 2.2rem;
-      margin-top: 100px;
       margin-bottom: 0.5rem;
     }
 
@@ -52,7 +56,7 @@
       font-weight: bold;
       font-size: 1.1rem;
       transition: background-color 0.3s ease;
-      display: inline-block; /* Este cambio limita el tamaño al texto */
+      display: inline-block;
     }
 
     a.button:hover {
@@ -63,7 +67,6 @@
       background-color: #0a0a0a;
       width: 100%;
       padding: 20px 10px;
-      margin-top: auto;
       text-align: center;
     }
 
