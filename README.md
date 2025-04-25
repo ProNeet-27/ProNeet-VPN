@@ -4,7 +4,7 @@
 
 # 🛡️ ProNeet VPN
 
-¡Bienvenido a la **descarga oficial** de **ProNeet VPN**!  
+¡Bienvenido a la **Página oficial** de **ProNeet VPN**!  
 Una app confiable, rápida y lista para mantener tu conexión segura.
 
 ---
