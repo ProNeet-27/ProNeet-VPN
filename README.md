@@ -19,21 +19,16 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 ## 📸 Capturas de pantalla
 
-| Pantalla principal 
-
-![Captura 1](captura1.jpg) |
-
+| Pantalla principal |
+![Captura 1](captura1.jpg)
 
 
-| Configuración
-
+| Configuración |
 ![Captura 2](captura2.jpg) 
 
 
-
-|Registro
-
-![Captura 3](captura3.jpg) |  
+| Registro |
+![Captura 3](captura3.jpg) 
 
 
 
@@ -41,7 +36,7 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 Síguenos o únete a nuestros grupos para soporte, actualizaciones y novedades:
 
-- 💬 WhatsApp: [Mensaje directo](https://wa.me/+593992852026)
+- 💬 WhatsApp: [Mensaje directo](https://wa.me/593992852026?text=Hola%20vengo%20desde%20la%20Página%20de%20ProNeet%20VPN%20y%20quiero%20más%20información%20sobre%20la%20aplicacion.)
 - 👥 Grupo WhatsApp: [Unirse aquí](https://chat.whatsapp.com/GoKO7anWUlO0AcCgWbJXOS)
 - 📢 Telegram: [Canal 1](https://t.me/netfre_ec) | [Canal 2](https://t.me/Netfree_Ec)
 - 📘 Facebook: [ProNeet27](http://www.facebook.com/ProNeet27)
