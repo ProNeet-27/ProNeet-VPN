@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="favicon.png" alt="ProNeet VPN Logo" width="180"/>
+  <img src="Logo_blanco.png" alt="ProNeet VPN Logo" width="180"/>
 </p>
 
 # 🛡️ ProNeet VPN
@@ -17,11 +17,21 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 ---
 
+## 📸 Capturas de pantalla
+
+| Pantalla principal | Configuración |
+|--------------------|----------------|----------------|
+| ![Captura 1](captura1.jpg) | ![Captura 2](captura2.jpg) | ![Captura 3](captura3.jpg) |  
+
+> Puedes subir más capturas si lo deseas. Solo agrega nuevas filas a la tabla.
+
+---
+
 ## 📡 Redes y contacto
 
 Síguenos o únete a nuestros grupos para soporte, actualizaciones y novedades:
 
-- 💬 WhatsApp: [Mensaje directo](https://wa.me/593992852026?text=Hola%20vengo%20desde%20la%20Página%20de%20ProNeet%20VPN%20y%20quiero%20más%20información%20sobre%20la%20aplicacion.)
+- 💬 WhatsApp: [Mensaje directo](https://wa.me/+593992852026)
 - 👥 Grupo WhatsApp: [Unirse aquí](https://chat.whatsapp.com/GoKO7anWUlO0AcCgWbJXOS)
 - 📢 Telegram: [Canal 1](https://t.me/netfre_ec) | [Canal 2](https://t.me/Netfree_Ec)
 - 📘 Facebook: [ProNeet27](http://www.facebook.com/ProNeet27)
