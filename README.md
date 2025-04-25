@@ -19,7 +19,7 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 ## 📸 Capturas de pantalla
 
-<p align="center"><br>
+<p align="center"><br><br><br><br>
   <strong>| Pantalla principal |</strong><br>
   <img src="captura1.jpg" alt="Captura 1" width="300"/>  
 </p>
