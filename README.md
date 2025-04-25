@@ -19,14 +19,21 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 ## 📸 Capturas de pantalla
 
-| Pantalla principal |
-| ![Captura 1](captura1.jpg) |
+| Pantalla principal 
 
-| Configuración | 
+![Captura 1](captura1.jpg) |
+
+
+
+| Configuración
+
 ![Captura 2](captura2.jpg) 
 
-|Registro|
-| ![Captura 3](captura3.jpg) |  
+
+
+|Registro
+
+![Captura 3](captura3.jpg) |  
 
 
 
