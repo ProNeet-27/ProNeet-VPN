@@ -40,7 +40,7 @@ Síguenos o únete a nuestros grupos para soporte, actualizaciones y novedades:
 
 - 💬 WhatsApp: [Mensaje directo](https://wa.me/593992852026?text=Hola%20vengo%20desde%20la%20Página%20de%20ProNeet%20VPN%20y%20quiero%20más%20información%20sobre%20la%20aplicacion.)
 - 👥 Grupo WhatsApp: [Unirse aquí](https://chat.whatsapp.com/GoKO7anWUlO0AcCgWbJXOS)
-- 📢 Telegram: [Canal 1](https://t.me/netfre_ec) | [Canal 2](https://t.me/Netfree_Ec)
+- 📢 Telegram: [Canal de telegram](https://t.me/netfre_ec) | [Grupo de telegram](https://t.me/Netfree_Ec)
 - 📘 Facebook: [ProNeet27](http://www.facebook.com/ProNeet27)
 - 📸 Instagram: [@proneet.27](http://www.instagram.com/proneet.27)
 
