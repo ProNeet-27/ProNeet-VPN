@@ -13,7 +13,7 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 👉 Haz clic en el botón para descargar la **última versión** de nuestra app:
 
-[![Descargar APK](https://img.shields.io/badge/Descargar-APK-green?style=for-the-badge&logo=android)](https://github.com/ProNeet-27/ProNeet-VPN/releases/download/v1.0/ProNeet.VPN.apk)
+[![Descargar APK](https://img.shields.io/badge/Descargar-APK-green?style=for-the-badge&logo=android)](https://github.com/ProNeet-27/ProNeet-VPN/releases/download/v1.0/ProNeet.VPN.v1.0.apk)
 
 ---
 
