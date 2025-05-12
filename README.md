@@ -31,7 +31,7 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 
 <p align="center"><br><br>
   <strong>| Registro |</strong><br><br>
-  <img src="captura3.jpg" alt="Captura 3" width="300"/>  
+  <img src="captura33.jpg" alt="Captura 3" width="300"/>  
 </p>
 
 ## 📡 Redes y contacto
