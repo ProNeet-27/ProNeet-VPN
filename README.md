@@ -25,13 +25,18 @@ Una app confiable, rápida y lista para mantener tu conexión segura.
 </p>
 
 <p align="center"><br><br>
-  <strong>| Configuración |</strong><br><br> 
+  <strong>| Opciones |</strong><br><br> 
   <img src="captura2.jpg" alt="Captura 2" width="300"/>  
 </p>
 
 <p align="center"><br><br>
-  <strong>| Registro |</strong><br><br>
+  <strong>| Ajustes |</strong><br><br>
   <img src="captura3.jpg" alt="Captura 3" width="300"/>  
+</p>
+
+<p align="center"><br><br>
+  <strong>| Registro |</strong><br><br>
+  <img src="captura4.jpg" alt="Captura 3" width="300"/>  
 </p>
 
 ## 📡 Redes y contacto
