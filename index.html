@@ -97,8 +97,19 @@
       margin-bottom: 10px;
     }
     
-    hr { border: 0; height: 1px; background: #00ff99; margin: 2rem auto; width: 80%; }
-
+    /* Línea verde */
+    hr { 
+      border: 0; 
+      height: 1px; 
+      background: #00ff99; 
+      margin: 2rem auto; 
+      width: 80%; 
+    }
+    @media (min-width: 800px) {
+      hr {
+        width: 100%;
+      }
+    }
 
     a.button {
       background-color: #00ff99;
@@ -146,6 +157,26 @@
       margin-top: 10px;
     }
 
+    /* Galería de capturas */
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 6px;
+    }
+
+    @media (min-width: 800px) {
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     /* Scrollbar solo para PC/Tablet grande */
     @media (min-width: 800px) {
       ::-webkit-scrollbar {
@@ -183,23 +214,33 @@
     <hr>
     
     <!-- 🔹 Nueva descripción -->
-    
     <h2>📸 Capturas de pantalla</h2>
-  <p class="center"><strong>| Pantalla principal |</strong><br><br><img src="captura1.jpg" alt="Captura 1" width="300"/></p>
-  <p class="center"><strong>| Configuración |</strong><br><br><img src="captura2.jpg" alt="Captura 2" width="300"/></p>
-  <p class="center"><strong>| Registro |</strong><br><br><img src="captura3.jpg" alt="Captura 3" width="300"/></p>
+    <div class="gallery">
+      <div class="gallery-item">
+        <strong>| Pantalla principal |</strong><br><br>
+        <img src="captura1.jpg" alt="Captura 1"/>
+      </div>
+      <div class="gallery-item">
+        <strong>| Configuración |</strong><br><br>
+        <img src="captura2.jpg" alt="Captura 2"/>
+      </div>
+      <div class="gallery-item">
+        <strong>| Registro |</strong><br><br>
+        <img src="captura3.jpg" alt="Captura 3"/>
+      </div>
+    </div>
 
-  <hr>
+    <hr>
     
     <h2>⚙️ Instalación</h2>
-  <ul>
-    <li>Descarga el archivo <strong>.apk</strong>.</li>
-    <li>Ábrelo desde tu móvil Android.</li>
-    <li>Si es tu primera vez, activa la opción de <strong>"Permitir fuentes desconocidas"</strong>.</li>
-    <li>¡Instala y conéctate!</li>
-  </ul>
+    <ul>
+      <li>Descarga el archivo <strong>.apk</strong>.</li>
+      <li>Ábrelo desde tu móvil Android.</li>
+      <li>Si es tu primera vez, activa la opción de <strong>"Permitir fuentes desconocidas"</strong>.</li>
+      <li>¡Instala y conéctate!</li>
+    </ul>
 
-  <hr>
+    <hr>
     
     <h2>🌐 ProNeet VPN</h2>
     <p>
