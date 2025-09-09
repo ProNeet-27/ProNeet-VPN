@@ -18,7 +18,9 @@
       overflow-y: auto;
       background-color: #0f0f0f;
       color: #00ff99;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
       text-align: center;
       height: 100%;
     }
@@ -52,26 +54,31 @@
       margin-bottom: 10px;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-      color: #00ff99;
+    /* 🔹 Títulos uniformes */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: inherit;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 1.2rem 0 0.8rem;
     }
 
-    h2 {
-      font-size: 1.6rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #00ff99;
-    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.3rem; }
+    h4 { font-size: 1.1rem; }
+    h5 { font-size: 1rem; }
+    h6 { font-size: 0.9rem; }
 
     /* Títulos que deben ir a la izquierda */
     .left-title {
       text-align: left;
     }
 
+    /* 🔹 Párrafos uniformes */
     p {
+      font-family: inherit;
       font-size: 1rem;
+      font-weight: 400;
       margin-bottom: 1.5rem;
       color: #fff;
       text-align: justify;
@@ -92,10 +99,11 @@
     ul {
       text-align: left;
       color: #fff;
-      font-size: 1.1rem;
+      font-size: 1rem;
+      line-height: 1.6rem;
       margin: 1rem auto;
       max-width: 800px;
-      line-height: 1.6rem;
+      font-family: inherit;
     }
 
     ul li {
@@ -147,6 +155,8 @@
 
     footer h3 {
       color: #fff;
+      font-weight: 600;
+      font-size: 1.2rem;
     }
 
     .social-icons a {
@@ -177,7 +187,8 @@
     }
 
     .gallery-item strong {
-      color: #fff; /* blanco */
+      color: #fff;
+      font-family: inherit;
     }
 
     @media (min-width: 800px) {
