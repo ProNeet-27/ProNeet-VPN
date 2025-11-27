@@ -31,21 +31,10 @@
     }
 
     /* --- BARRA DE DESPLAZAMIENTO (SCROLLBAR) --- */
-    /* Estilo oscuro y redondeado como en la foto */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0f0f0f; /* Mismo color del fondo */
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: #333; /* Gris oscuro */
-      border-radius: 6px;     /* Bordes redondeados */
-      border: 2px solid #0f0f0f; /* Espacio alrededor */
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #555; /* Un poco más claro al tocarlo */
-    }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0f0f0f; }
+    ::-webkit-scrollbar-thumb { background-color: #333; border-radius: 6px; border: 2px solid #0f0f0f; }
+    ::-webkit-scrollbar-thumb:hover { background-color: #555; }
 
     /* --- ENCABEZADO --- */
     header {
@@ -128,7 +117,6 @@
     /* --- CARDS (GRID RESPONSIVO) --- */
     .grid-container {
       display: grid;
-      /* Ajustado a 280px para que encaje bien en móviles pequeños */
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
       margin-bottom: 40px;
@@ -178,11 +166,16 @@
       gap: 20px;
     }
 
+    /* CORRECCIÓN AQUÍ: Centrar contenido de la tarjeta de galería */
     .gallery-item {
       background: #000;
       padding: 10px;
       border-radius: 15px;
       border: 1px solid #333;
+      display: flex;             /* Activamos Flexbox */
+      flex-direction: column;    /* Elementos uno debajo del otro */
+      align-items: center;       /* Centrado horizontal perfecto */
+      text-align: center;        /* Asegura que el texto esté centrado */
     }
 
     .gallery-item img {
