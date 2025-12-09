@@ -85,17 +85,18 @@
       margin-bottom: 30px;
     }
 
-    /* Botón de descarga */
+    /* --- ESTILOS BASE DEL BOTÓN (Para PC) --- */
     .download-btn {
       background-color: var(--primary);
       color: #000;
-      padding: 18px 40px;
+      padding: 18px 40px; /* Relleno grande para PC */
       border-radius: 50px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 1.2rem;
-      display: inline-flex; /* Cambiado a inline-flex para mejor alineación */
-      align-items: center;  /* Centrar verticalmente icono y texto */
+      font-size: 1.2rem; /* Letra grande para PC */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: all 0.3s ease;
       box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
       border: 2px solid var(--primary);
@@ -108,10 +109,29 @@
       transform: translateY(-3px);
     }
 
-    /* NUEVO: Ajuste específico para que el icono de Play Store se vea bonito y alineado */
     .download-btn i {
-        margin-right: 12px;    /* Espacio exacto entre el icono y el texto */
-        font-size: 1.4rem;     /* Ligeramente más grande que el texto para resaltar */
+        margin-right: 12px;
+        font-size: 1.4rem; /* Icono grande para PC */
+    }
+
+    /* --- NUEVO: AJUSTES PARA MÓVILES --- */
+    /* Si la pantalla es menor a 768px (tablets y celulares) aplica esto: */
+    @media (max-width: 768px) {
+      .hero h1 {
+          font-size: 2rem; /* Reducir un poco el título en móvil */
+      }
+      
+      .download-btn {
+        padding: 14px 24px; /* Reduce el relleno significativamente */
+        font-size: 1rem;    /* Reduce el tamaño de letra */
+        width: auto;        /* Deja que el botón se ajuste al contenido */
+        max-width: 90%;     /* Evita que toque los bordes de pantallas muy pequeñas */
+      }
+      
+      .download-btn i {
+          font-size: 1.2rem; /* Reduce el tamaño del icono */
+          margin-right: 8px; /* Reduce el espacio entre icono y texto */
+      }
     }
 
     .version-tag {
