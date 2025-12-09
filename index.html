@@ -85,16 +85,15 @@
       margin-bottom: 30px;
     }
 
-    /* --- BOTÓN DE DESCARGA (NUEVO DISEÑO 2 LÍNEAS) --- */
+    /* --- BOTÓN DE DESCARGA (2 LÍNEAS) --- */
     .download-btn {
       background-color: var(--primary);
       color: #000;
-      /* Relleno cómodo para PC */
-      padding: 12px 35px; 
+      padding: 12px 40px; 
       border-radius: 50px;
       text-decoration: none;
       display: inline-flex;
-      align-items: center; /* Centrar icono verticalmente */
+      align-items: center; 
       justify-content: center;
       transition: all 0.3s ease;
       box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
@@ -103,15 +102,16 @@
 
     .download-btn i {
       margin-right: 15px;
-      font-size: 2rem; /* Icono grande estilo Store */
+      font-size: 2rem; 
     }
 
-    /* Contenedor del texto para las dos líneas */
+    /* Contenedor del texto (Flex Column) */
     .btn-text {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      line-height: 1.1;
+      justify-content: center;
+      /* Eliminé el line-height fijo aquí para controlar mejor con margenes */
     }
 
     .btn-line1 {
@@ -119,11 +119,14 @@
       font-weight: 600;
       text-transform: uppercase;
       opacity: 0.9;
+      /* AQUÍ ESTÁ EL CAMBIO: Espacio (interlineado) hacia abajo */
+      margin-bottom: 3px; 
     }
 
     .btn-line2 {
       font-size: 1.3rem;
       font-weight: 800;
+      line-height: 1; /* Mantiene la segunda línea compacta */
     }
 
     .download-btn:hover {
@@ -284,14 +287,15 @@
     /* --- AJUSTE MÓVIL EXACTO --- */
     @media (max-width: 600px) {
       .download-btn {
-        /* Relleno: 10px arriba/abajo (ajustado porque el texto doble altura ya da volumen) 
-           y 20px a los lados (como pediste) */
-        padding: 10px 40px;   
+        /* 12px arriba/abajo: Para compensar el espacio del texto y que quede centrado bonito 
+           35px lados: Exactamente lo que pediste 
+        */
+        padding: 12px 35px;   
         width: auto;
       }
       
       .download-btn i {
-        font-size: 1.8rem; /* Icono un poco más chico en móvil */
+        font-size: 1.8rem;
         margin-right: 12px;
       }
       
@@ -315,7 +319,7 @@
         <i class="fab fa-google-play"></i>
         <div class="btn-text">
             <span class="btn-line1">DESCARGAR DESDE</span>
-            <span class="btn-line2">PLAY STORE</span>
+            <span class="btn-line2">GOOGLE PLAY</span>
         </div>
       </a>
       
