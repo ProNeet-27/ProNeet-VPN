@@ -85,17 +85,16 @@
       margin-bottom: 30px;
     }
 
-    /* Botón de descarga - ESTILO ORIGINAL (PC) */
+    /* --- BOTÓN DE DESCARGA (NUEVO DISEÑO 2 LÍNEAS) --- */
     .download-btn {
       background-color: var(--primary);
       color: #000;
-      padding: 18px 40px; 
+      /* Relleno cómodo para PC */
+      padding: 12px 35px; 
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 800;
-      font-size: 1.2rem;
       display: inline-flex;
-      align-items: center;
+      align-items: center; /* Centrar icono verticalmente */
       justify-content: center;
       transition: all 0.3s ease;
       box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
@@ -103,8 +102,28 @@
     }
 
     .download-btn i {
-      margin-right: 12px;
-      font-size: 1.4rem;
+      margin-right: 15px;
+      font-size: 2rem; /* Icono grande estilo Store */
+    }
+
+    /* Contenedor del texto para las dos líneas */
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.1;
+    }
+
+    .btn-line1 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .btn-line2 {
+      font-size: 1.3rem;
+      font-weight: 800;
     }
 
     .download-btn:hover {
@@ -116,7 +135,7 @@
 
     .version-tag {
       display: block;
-      margin-top: 10px;
+      margin-top: 15px;
       font-size: 0.85rem;
       color: #666;
     }
@@ -262,18 +281,22 @@
       font-size: 0.9rem;
     }
 
-    /* --- AJUSTE DEFINITIVO: GORDITO Y CORTO DE LADOS --- */
+    /* --- AJUSTE MÓVIL EXACTO --- */
     @media (max-width: 600px) {
       .download-btn {
-        /* 22px arriba/abajo (Gordito), 20px lados (Más corto) */
-        padding: 22px 15px;   
-        font-size: 0.9rem;
-        width: auto;          
+        /* Relleno: 10px arriba/abajo (ajustado porque el texto doble altura ya da volumen) 
+           y 20px a los lados (como pediste) */
+        padding: 10px 20px;   
+        width: auto;
       }
+      
       .download-btn i {
-        font-size: 1.1rem;    
-        margin-right: 10px;
+        font-size: 1.8rem; /* Icono un poco más chico en móvil */
+        margin-right: 12px;
       }
+      
+      .btn-line1 { font-size: 0.7rem; }
+      .btn-line2 { font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -289,7 +312,11 @@
       <p>La mejor VPN desarrollada en Ecuador, con soporte para múltiples protocolos.</p>
       
       <a class="download-btn" href="https://play.google.com/store/apps/details?id=com.proneet.vpn" target="_blank">
-        <i class="fab fa-google-play"></i> DESCARGAR DESDE PLAY STORE
+        <i class="fab fa-google-play"></i>
+        <div class="btn-text">
+            <span class="btn-line1">DESCARGAR DESDE</span>
+            <span class="btn-line2">PLAY STORE</span>
+        </div>
       </a>
       
       <span class="version-tag">Versión 27.11 build (26)</span>
