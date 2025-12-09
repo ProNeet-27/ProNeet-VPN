@@ -85,7 +85,7 @@
       margin-bottom: 30px;
     }
 
-    /* --- BOTÓN DE DESCARGA (2 LÍNEAS) --- */
+    /* --- BOTÓN DE DESCARGA (2 LÍNEAS CENTRADAS) --- */
     .download-btn {
       background-color: var(--primary);
       color: #000;
@@ -109,9 +109,12 @@
     .btn-text {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      
+      /* CAMBIO AQUÍ: Alineación al CENTRO horizontalmente */
+      align-items: center; 
+      text-align: center;
+      
       justify-content: center;
-      /* Eliminé el line-height fijo aquí para controlar mejor con margenes */
     }
 
     .btn-line1 {
@@ -119,14 +122,13 @@
       font-weight: 600;
       text-transform: uppercase;
       opacity: 0.9;
-      /* AQUÍ ESTÁ EL CAMBIO: Espacio (interlineado) hacia abajo */
       margin-bottom: 3px; 
     }
 
     .btn-line2 {
       font-size: 1.3rem;
       font-weight: 800;
-      line-height: 1; /* Mantiene la segunda línea compacta */
+      line-height: 1; 
     }
 
     .download-btn:hover {
@@ -287,9 +289,6 @@
     /* --- AJUSTE MÓVIL EXACTO --- */
     @media (max-width: 600px) {
       .download-btn {
-        /* 12px arriba/abajo: Para compensar el espacio del texto y que quede centrado bonito 
-           35px lados: Exactamente lo que pediste 
-        */
         padding: 12px 35px;   
         width: auto;
       }
@@ -319,7 +318,7 @@
         <i class="fab fa-google-play"></i>
         <div class="btn-text">
             <span class="btn-line1">DESCARGAR DESDE</span>
-            <span class="btn-line2">GOOGLE PLAY</span>
+            <span class="btn-line2">GOOGLE PLAY STORE</span>
         </div>
       </a>
       
