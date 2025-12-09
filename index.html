@@ -85,15 +85,15 @@
       margin-bottom: 30px;
     }
 
-    /* Botón de descarga - ESTILO ORIGINAL MANTENIDO */
+    /* Botón de descarga - ESTILO ORIGINAL MANTENIDO (PC) */
     .download-btn {
       background-color: var(--primary);
       color: #000;
-      padding: 18px 40px; /* Padding original para PC */
+      padding: 18px 40px; 
       border-radius: 50px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 1.2rem;  /* Tamaño original para PC */
+      font-size: 1.2rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -103,8 +103,8 @@
     }
 
     .download-btn i {
-      margin-right: 10px;
-      font-size: 1.3rem;
+      margin-right: 12px;
+      font-size: 1.4rem;
     }
 
     .download-btn:hover {
@@ -262,18 +262,18 @@
       font-size: 0.9rem;
     }
 
-    /* --- AQUÍ ESTÁ EL AJUSTE ÚNICO --- */
-    /* Solo modifica el tamaño en celulares, el resto del diseño es intocable */
+    /* --- AQUÍ ESTÁ EL AJUSTE PARA EL BOTÓN EN CELULARES --- */
     @media (max-width: 600px) {
       .download-btn {
-        padding: 10px 20px;   /* Mucho menos relleno para que sea angosto */
-        font-size: 0.9rem;    /* Letra más pequeña */
-        width: auto;          /* Se ajusta al texto */
-        max-width: 90%;       /* Evita que se salga de la pantalla */
+        /* Relleno: 12px arriba/abajo (angosto), 35px lados (ancho) */
+        padding: 12px 35px;   
+        font-size: 0.95rem;   /* Letra tamaño medio */
+        width: auto;          
+        max-width: 95%;       
       }
       .download-btn i {
-        font-size: 1rem;      /* Ajuste del icono */
-        margin-right: 8px;
+        font-size: 1.1rem;    
+        margin-right: 10px;
       }
     }
   </style>
