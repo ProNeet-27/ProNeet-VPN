@@ -85,15 +85,15 @@
       margin-bottom: 30px;
     }
 
-    /* --- ESTILOS BASE DEL BOTÓN (Para PC) --- */
+    /* Botón de descarga - ESTILO ORIGINAL MANTENIDO */
     .download-btn {
       background-color: var(--primary);
       color: #000;
-      padding: 18px 40px; /* Relleno grande para PC */
+      padding: 18px 40px; /* Padding original para PC */
       border-radius: 50px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 1.2rem; /* Letra grande para PC */
+      font-size: 1.2rem;  /* Tamaño original para PC */
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -102,36 +102,16 @@
       border: 2px solid var(--primary);
     }
 
+    .download-btn i {
+      margin-right: 10px;
+      font-size: 1.3rem;
+    }
+
     .download-btn:hover {
       background-color: transparent;
       color: var(--primary);
       box-shadow: 0 0 30px rgba(0, 255, 153, 0.6);
       transform: translateY(-3px);
-    }
-
-    .download-btn i {
-        margin-right: 12px;
-        font-size: 1.4rem; /* Icono grande para PC */
-    }
-
-    /* --- NUEVO: AJUSTES PARA MÓVILES --- */
-    /* Si la pantalla es menor a 768px (tablets y celulares) aplica esto: */
-    @media (max-width: 768px) {
-      .hero h1 {
-          font-size: 2rem; /* Reducir un poco el título en móvil */
-      }
-      
-      .download-btn {
-        padding: 14px 24px; /* Reduce el relleno significativamente */
-        font-size: 1rem;    /* Reduce el tamaño de letra */
-        width: auto;        /* Deja que el botón se ajuste al contenido */
-        max-width: 90%;     /* Evita que toque los bordes de pantallas muy pequeñas */
-      }
-      
-      .download-btn i {
-          font-size: 1.2rem; /* Reduce el tamaño del icono */
-          margin-right: 8px; /* Reduce el espacio entre icono y texto */
-      }
     }
 
     .version-tag {
@@ -193,16 +173,15 @@
       gap: 20px;
     }
 
-    /* CORRECCIÓN AQUÍ: Centrar contenido de la tarjeta de galería */
     .gallery-item {
       background: #000;
       padding: 10px;
       border-radius: 15px;
       border: 1px solid #333;
-      display: flex;              /* Activamos Flexbox */
-      flex-direction: column;     /* Elementos uno debajo del otro */
-      align-items: center;        /* Centrado horizontal perfecto */
-      text-align: center;         /* Asegura que el texto esté centrado */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     .gallery-item img {
@@ -282,6 +261,21 @@
       color: #444;
       font-size: 0.9rem;
     }
+
+    /* --- AQUÍ ESTÁ EL AJUSTE ÚNICO --- */
+    /* Solo modifica el tamaño en celulares, el resto del diseño es intocable */
+    @media (max-width: 600px) {
+      .download-btn {
+        padding: 10px 20px;   /* Mucho menos relleno para que sea angosto */
+        font-size: 0.9rem;    /* Letra más pequeña */
+        width: auto;          /* Se ajusta al texto */
+        max-width: 90%;       /* Evita que se salga de la pantalla */
+      }
+      .download-btn i {
+        font-size: 1rem;      /* Ajuste del icono */
+        margin-right: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -298,7 +292,7 @@
       <a class="download-btn" href="https://play.google.com/store/apps/details?id=com.proneet.vpn" target="_blank">
         <i class="fab fa-google-play"></i> DESCARGAR DESDE PLAY STORE
       </a>
-
+      
       <span class="version-tag">Versión 27.11 build (26)</span>
     </section>
 
