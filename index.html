@@ -85,7 +85,7 @@
       margin-bottom: 30px;
     }
 
-    /* Botón de descarga - ESTILO ORIGINAL MANTENIDO (PC) */
+    /* Botón de descarga - ESTILO ORIGINAL (PC) */
     .download-btn {
       background-color: var(--primary);
       color: #000;
@@ -262,14 +262,13 @@
       font-size: 0.9rem;
     }
 
-    /* --- AQUÍ ESTÁ EL AJUSTE PARA EL BOTÓN EN CELULARES --- */
+    /* --- AJUSTE FINAL: GORDITO (ARRIBA/ABAJO) Y ANGOSTO (LADOS) --- */
     @media (max-width: 600px) {
       .download-btn {
-        /* Relleno: 12px arriba/abajo (angosto), 35px lados (ancho) */
-        padding: 12px 35px;   
-        font-size: 0.95rem;   /* Letra tamaño medio */
+        /* 16px arriba/abajo (más gordito), 25px lados (más angosto) */
+        padding: 16px 25px;   
+        font-size: 0.9rem;
         width: auto;          
-        max-width: 95%;       
       }
       .download-btn i {
         font-size: 1.1rem;    
