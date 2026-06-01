@@ -1,903 +1,614 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-
   <title>APP ProNeet VPN - Oficial</title>
-
   <meta name="google-adsense-account" content="ca-pub-6589729464514376">
-
   <link rel="icon" href="favicon.png" type="image/png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   
-
   <style>
-
-    /* --- VARIABLES Y RESET --- */
-
+    /* --- VARIABLES CSS --- */
     :root {
-
-      --primary: #00ff99;
-
-      --primary-dark: #00cc77;
-
-      --bg-dark: #0f0f0f;
-
-      --bg-card: #1a1a1a;
-
-      --text-light: #e0e0e0;
-
-      --glow: 0 0 10px rgba(0, 255, 153, 0.4);
-
+      --primary: #008855; 
+      --primary-glow: rgba(0, 136, 85, 0.2);
+      --bg-main: #ffffff;
+      --text-main: #000000; 
+      --text-muted: #333333; 
+      --bg-card: #f8f9fa; 
+      --border-color: #dddddd;
+      --header-bg: rgba(255, 255, 255, 0.95);
+      --footer-bg: #e5e7eb;
+      --btn-text: #ffffff; 
+      /* Brillo adaptado para modo claro */
+      --hero-blur: radial-gradient(circle at top, rgba(0, 136, 85, 0.08) 0%, transparent 500px);
     }
 
+    body.modo-oscuro {
+      --primary: #00ff99; 
+      --primary-glow: rgba(0, 255, 153, 0.4);
+      --bg-main: #0f0f0f;
+      --text-main: #ffffff; 
+      --text-muted: #cccccc; 
+      --bg-card: #1a1a1a;
+      --border-color: #333333;
+      --header-bg: rgba(10, 10, 10, 0.95);
+      --footer-bg: #050505;
+      --btn-text: #000000; 
+      /* Tu brillo neón original para modo oscuro */
+      --hero-blur: radial-gradient(circle at top, rgba(0, 255, 153, 0.12) 0%, transparent 500px);
+    }
 
-
+    /* --- RESET --- */
     * { box-sizing: border-box; }
 
-
-
     body {
-
       margin: 0;
-
       padding: 0;
-
-      background-color: var(--bg-dark);
-
-      color: var(--text-light);
-
+      background-color: var(--bg-main);
+      color: var(--text-main);
       font-family: 'Poppins', sans-serif;
-
-      overflow-x: hidden;
-
+      overflow-x: hidden; 
+      transition: background-color 0.5s ease, color 0.5s ease;
     }
 
-
-
-    /* --- BARRA DE DESPLAZAMIENTO (SCROLLBAR) --- */
+    h1, h2, h3, h4, h5, h6, p, li, span { color: inherit; }
 
     ::-webkit-scrollbar { width: 10px; }
-
-    ::-webkit-scrollbar-track { background: #0f0f0f; }
-
-    ::-webkit-scrollbar-thumb { background-color: #333; border-radius: 6px; border: 2px solid #0f0f0f; }
-
-    ::-webkit-scrollbar-thumb:hover { background-color: #555; }
-
-
+    ::-webkit-scrollbar-track { background: var(--bg-main); }
+    ::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 6px; }
+    ::-webkit-scrollbar-thumb:hover { background-color: var(--primary); }
 
     /* --- ENCABEZADO --- */
-
     header {
-
       width: 100%;
-
-      background-color: rgba(10, 10, 10, 0.9);
-
+      background-color: var(--header-bg);
       backdrop-filter: blur(10px);
-
-      padding: 15px 0;
-
-      text-align: center;
-
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: fixed;
-
       top: 0;
-
       z-index: 100;
-
-      border-bottom: 1px solid rgba(0, 255, 153, 0.1);
-
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.5s ease;
     }
 
+    .brand { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; }
 
-
-    .brand {
-
-      font-size: 1.5rem;
-
-      font-weight: 700;
-
-      color: var(--primary);
-
-      letter-spacing: 1px;
-
+    /* BOTÓN TEMA */
+    .btn-tema {
+      background: none; border: none; color: var(--text-main); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8px; border-radius: 50%; transition: transform 0.3s ease, background 0.3s ease;
     }
+    .btn-tema:hover { background: var(--border-color); transform: scale(1.1); }
+    .btn-tema svg { width: 24px; height: 24px; }
+    .icono-sol { display: none; }
+    body.modo-oscuro .icono-luna { display: none; }
+    body.modo-oscuro .icono-sol { display: block; color: #ffd700; }
 
-
-
-    /* --- ESTRUCTURA PRINCIPAL --- */
-
-    main {
-
-      padding: 80px 20px 20px;
-
-      max-width: 1100px;
-
-      margin: 0 auto;
-
-      background: radial-gradient(circle at top, rgba(0, 255, 153, 0.12) 0%, transparent 450px);
-
+    /* --- MAIN (CON TU BLUR INTEGRADO) --- */
+    main { 
+      padding: 120px 20px 20px; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      background: var(--hero-blur);
       background-repeat: no-repeat;
-
     }
 
+    /* --- ANIMACIONES --- */
+    .anim-left { opacity: 0; transform: translateX(-100px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .anim-right { opacity: 0; transform: translateX(100px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .anim-up { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .visible { opacity: 1; transform: translate(0, 0); }
 
-
-    /* --- HERO SECTION --- */
-
-    .hero {
-
-      text-align: center;
-
-      padding: 20px 20px;
-
-      margin-bottom: 30px;
-
-    }
-
-
-
-    .hero h1 {
-
-      font-size: 2.5rem;
-
-      color: #fff;
-
-      margin-bottom: 10px;
-
-      line-height: 1.2;
-
-    }
-
-
-
-    .hero p {
-
-      font-size: 1.1rem;
-
-      color: #aaa;
-
-      margin-bottom: 30px;
-
-    }
-
-
-
-    /* --- BOTÓN DE DESCARGA (2 LÍNEAS CENTRADAS) --- */
+    /* --- HERO --- */
+    .hero { text-align: center; padding: 40px 20px; margin-bottom: 60px; }
+    .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; line-height: 1.1; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
 
     .download-btn {
-
       background-color: var(--primary);
-
-      color: #000;
-
-      padding: 12px 40px; 
-
+      color: var(--btn-text) !important; 
+      padding: 15px 45px; 
       border-radius: 50px;
-
       text-decoration: none;
-
       display: inline-flex;
-
       align-items: center; 
-
       justify-content: center;
-
       transition: all 0.3s ease;
-
-      box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
-
+      box-shadow: 0 10px 30px var(--primary-glow);
       border: 2px solid var(--primary);
-
     }
+    .download-btn i { margin-right: 15px; font-size: 2.5rem; color: inherit; }
+    .btn-text { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .btn-line1 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; opacity: 0.9; margin-bottom: 3px; }
+    .btn-line2 { font-size: 1.5rem; font-weight: 800; line-height: 1; }
+    .download-btn:hover { background-color: transparent; color: var(--primary) !important; transform: translateY(-5px); }
+    .version-tag { display: block; margin-top: 20px; font-size: 0.9rem; color: var(--text-muted) !important; font-weight: 600; }
 
-
-
-    .download-btn i {
-
-      margin-right: 15px;
-
-      font-size: 2rem; 
-
+    /* --- ESTADÍSTICAS --- */
+    .stats-container {
+      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px;
+      background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px;
+      padding: 40px; margin-bottom: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
+    .stat-box { text-align: center; flex: 1; min-width: 200px; }
+    .stat-number { font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+    .stat-label { font-size: 1.1rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-
-
-    /* Contenedor del texto (Flex Column) */
-
-    .btn-text {
-
+    /* --- CONTENEDOR DE ANUNCIOS OPTIMIZADO --- */
+    .espacio-anuncio {
       display: flex;
-
-      flex-direction: column;
-
-      
-
-      /* CAMBIO AQUÍ: Alineación al CENTRO horizontalmente */
-
-      align-items: center; 
-
-      text-align: center;
-
-      
-
       justify-content: center;
-
+      align-items: center;
+      width: 100%;
+      margin: 40px 0;
+      min-height: 90px; /* Evita que la página salte cuando cargue el anuncio */
+      overflow: hidden;
     }
 
+    /* --- BLOQUES ZIG-ZAG --- */
+    .split-block { display: flex; align-items: center; justify-content: space-between; gap: 50px; margin-bottom: 60px; }
+    .split-block.reverse { flex-direction: row-reverse; }
+    .block-text { flex: 1; }
+    .block-text h2 { font-size: 2.5rem; color: var(--primary) !important; margin-top: 0; margin-bottom: 20px; }
+    .block-text p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+    .block-text ul { padding-left: 20px; font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); }
+    .block-text li { margin-bottom: 10px; }
+    
+    .block-image { flex: 1; position: relative; }
+    .block-image img { width: 100%; border-radius: 20px; transition: transform 0.4s ease; object-fit: contain; max-height: 400px; }
+    .block-image img:hover { transform: scale(1.05); }
 
+    /* --- TARJETAS MENORES (GRID) --- */
+    .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; }
+    .card { background: var(--bg-card); padding: 40px 30px; border-radius: 20px; border: 1px solid var(--border-color); transition: transform 0.3s, box-shadow 0.3s, background 0.5s ease; text-align: center; }
+    .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 15px 30px var(--primary-glow); }
+    .card i.card-icon { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+    .card h3 { color: var(--text-main) !important; font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; }
+    .card p { color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
 
-    .btn-line1 {
-
-      font-size: 0.75rem;
-
-      font-weight: 600;
-
-      text-transform: uppercase;
-
-      opacity: 0.9;
-
-      margin-bottom: 3px; 
-
+    /* --- PREGUNTAS FRECUENTES (ACORDEÓN) --- */
+    .faq-section { margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .faq-section h2 { text-align: center; font-size: 2.5rem; color: var(--text-main); margin-bottom: 40px; }
+    .faq-container { background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-color); padding: 20px 40px; }
+    .faq-item { border-bottom: 1px solid var(--border-color); }
+    .faq-item:last-child { border-bottom: none; }
+    
+    .faq-question {
+      width: 100%; text-align: left; background: none; border: none; padding: 20px 0;
+      font-size: 1.15rem; font-weight: 600; color: var(--text-main); cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: color 0.3s; font-family: 'Poppins', sans-serif;
     }
+    .faq-question:hover { color: var(--primary); }
+    .faq-question i { color: var(--primary); transition: transform 0.4s ease; font-size: 1.2rem; }
+    .faq-question.active i { transform: rotate(135deg); } 
+    
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-answer p { padding-bottom: 20px; padding-right: 30px; margin: 0; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
 
-
-
-    .btn-line2 {
-
-      font-size: 1.3rem;
-
-      font-weight: 800;
-
-      line-height: 1; 
-
+    /* --- SECCIONES CONTACTO / REVENDEDORES --- */
+    .contact-section {
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 255, 153, 0.05) 100%);
+      border: 1px solid var(--border-color); border-radius: 20px; padding: 50px; text-align: center;
+      margin-bottom: 80px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
+    .contact-section h2 { font-size: 2.5rem; color: var(--text-main); margin-top: 0; margin-bottom: 15px; }
+    .contact-section p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    
+    .contact-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .btn-contact { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 30px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+    .btn-email { background-color: var(--text-main); color: var(--bg-main); border: 2px solid var(--text-main); }
+    .btn-email:hover { background-color: transparent; color: var(--text-main); transform: translateY(-3px); }
+    .btn-wa { background-color: #25d366; color: white; border: 2px solid #25d366; }
+    .btn-wa:hover { background-color: transparent; color: #25d366; transform: translateY(-3px); }
 
-
-
-    .download-btn:hover {
-
-      background-color: transparent;
-
-      color: var(--primary);
-
-      box-shadow: 0 0 30px rgba(0, 255, 153, 0.6);
-
-      transform: translateY(-3px);
-
-    }
-
-
-
-    .version-tag {
-
-      display: block;
-
-      margin-top: 15px;
-
-      font-size: 0.85rem;
-
-      color: #666;
-
-    }
-
-
-
-    /* --- CARDS (GRID RESPONSIVO) --- */
-
-    .grid-container {
-
-      display: grid;
-
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-      gap: 25px;
-
-      margin-bottom: 40px;
-
-    }
-
-
-
-    .card {
-
-      background: var(--bg-card);
-
-      padding: 30px;
-
-      border-radius: 16px;
-
-      border: 1px solid #333;
-
-      transition: transform 0.3s;
-
-    }
-
-
-
-    .card:hover {
-
-      border-color: var(--primary);
-
-      transform: translateY(-5px);
-
-    }
-
-
-
-    .card h2 {
-
-      color: var(--primary);
-
-      font-size: 1.4rem;
-
-      margin-top: 0;
-
-      border-left: 3px solid var(--primary);
-
-      padding-left: 15px;
-
-    }
-
-
-
-    .card p, .card li {
-
-      color: #ccc;
-
-      font-size: 0.95rem;
-
-      line-height: 1.6;
-
-    }
-
-
-
-    .card ul { padding-left: 20px; }
-
-    .card li { margin-bottom: 8px; }
-
-
+    .reseller-section { background: var(--bg-card); border: 2px dashed var(--primary); }
 
     /* --- GALERÍA --- */
+    .gallery-section { text-align: center; margin: 80px 0; }
+    .gallery-section h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--text-main); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+    .gallery-item { background: var(--bg-card); padding: 15px; border-radius: 20px; border: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; transition: transform 0.3s, background 0.5s ease; }
+    .gallery-item:hover { transform: translateY(-10px); border-color: var(--primary); }
+    .gallery-item img { width: 100%; border-radius: 12px; display: block; border: 1px solid rgba(0,0,0,0.1); }
+    .gallery-item span { display: block; margin-top: 15px; font-size: 1.1rem; color: var(--primary) !important; font-weight: 700; }
 
-    .gallery-section {
+    /* --- LEGALES Y FOOTER ORIGINAL DEL USUARIO --- */
+    .legal-area { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 40px 0; }
+    .btn-secondary { border: 1px solid var(--border-color); color: var(--text-main); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+    .btn-secondary:hover { border-color: var(--primary); background: var(--primary-glow); }
 
-      text-align: center;
+    footer { background-color: var(--footer-bg); padding: 40px 20px; text-align: center; border-top: 1px solid var(--border-color); transition: background 0.5s ease; }
+    footer h3 { color: var(--text-main); font-size: 1.3rem; margin-bottom: 20px; font-weight: 700; }
+    .social-icons { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 25px; }
+    .social-icons a { color: var(--text-main); font-size: 1.5rem; transition: color 0.3s, transform 0.2s; }
+    .social-icons a:hover { color: var(--primary); transform: scale(1.1); }
+    .footer-copy { color: var(--text-muted); font-size: 0.9rem; }
 
-      margin: 50px 0;
+    /* WHATSAPP FLOTANTE */
+    .whatsapp-float { position: fixed; width: 65px; height: 65px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF !important; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); z-index: 1000; text-decoration: none; transition: all 0.3s ease; }
+    .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); }
 
+    /* --- RESPONSIVO MÓVIL --- */
+    @media (max-width: 900px) {
+      .split-block, .split-block.reverse { flex-direction: column; gap: 30px; text-align: center; }
+      .block-text ul { text-align: left; display: inline-block; }
+      .stats-container { flex-direction: column; gap: 40px; }
+      .faq-container { padding: 15px 20px; }
     }
-
-    
-
-    .gallery-section h2 { font-size: 2rem; margin-bottom: 30px; color: #fff; }
-
-
-
-    .gallery-grid {
-
-      display: grid;
-
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-      gap: 20px;
-
-    }
-
-
-
-    .gallery-item {
-
-      background: #000;
-
-      padding: 10px;
-
-      border-radius: 15px;
-
-      border: 1px solid #333;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
-      text-align: center;
-
-    }
-
-
-
-    .gallery-item img {
-
-      width: 100%;
-
-      border-radius: 10px;
-
-      display: block;
-
-    }
-
-    
-
-    .gallery-item span {
-
-      display: block;
-
-      margin-top: 10px;
-
-      font-size: 0.9rem;
-
-      color: var(--primary);
-
-      font-weight: 600;
-
-    }
-
-
-
-    /* --- BOTONES LEGALES --- */
-
-    .legal-area {
-
-      display: flex;
-
-      justify-content: center;
-
-      gap: 15px;
-
-      flex-wrap: wrap;
-
-      margin: 40px 0;
-
-    }
-
-
-
-    .btn-secondary {
-
-      border: 1px solid #444;
-
-      color: #fff;
-
-      padding: 10px 20px;
-
-      border-radius: 8px;
-
-      text-decoration: none;
-
-      font-size: 0.9rem;
-
-      transition: 0.3s;
-
-    }
-
-
-
-    .btn-secondary:hover {
-
-      border-color: var(--primary);
-
-      background: rgba(0, 255, 153, 0.05);
-
-    }
-
-
-
-    /* --- FOOTER --- */
-
-    footer {
-
-      background-color: #050505;
-
-      padding: 40px 20px;
-
-      text-align: center;
-
-      border-top: 1px solid #222;
-
-    }
-
-
-
-    footer h3 {
-
-      color: #fff;
-
-      font-size: 1.3rem;
-
-      margin-bottom: 20px;
-
-      font-weight: 700;
-
-    }
-
-
-
-    .social-icons {
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      flex-wrap: wrap;
-
-      gap: 20px;
-
-      margin-bottom: 25px;
-
-    }
-
-
-
-    .social-icons a {
-
-      color: #fff;
-
-      font-size: 1.5rem;
-
-      transition: color 0.3s, transform 0.2s;
-
-    }
-
-
-
-    .social-icons a:hover { 
-
-      color: var(--primary);
-
-      transform: scale(1.1);
-
-    }
-
-    
-
-    .footer-copy {
-
-      color: #444;
-
-      font-size: 0.9rem;
-
-    }
-
-
-
-    /* --- AJUSTE MÓVIL EXACTO --- */
-
     @media (max-width: 600px) {
-
-      .download-btn {
-
-        padding: 12px 35px;   
-
-        width: auto;
-
-      }
-
-      
-
-      .download-btn i {
-
-        font-size: 1.8rem;
-
-        margin-right: 12px;
-
-      }
-
-      
-
-      .btn-line1 { font-size: 0.7rem; }
-
-      .btn-line2 { font-size: 1.1rem; }
-
+      .hero h1 { font-size: 2.5rem; }
+      .download-btn { padding: 12px 30px; width: 100%; }
+      .btn-contact { width: 100%; }
+      .faq-question { font-size: 1rem; }
     }
-
-
-
-    /* --- BOTÓN FLOTANTE WHATSAPP --- */
-
-    .whatsapp-float {
-
-      position: fixed;
-
-      width: 60px;
-
-      height: 60px;
-
-      bottom: 25px;
-
-      right: 25px;
-
-      background-color: #25d366;
-
-      color: #FFF;
-
-      border-radius: 50px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 35px;
-
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-
-      z-index: 1000;
-
-      text-decoration: none;
-
-      transition: all 0.3s ease;
-
-    }
-
-
-
-    .whatsapp-float:hover {
-
-      background-color: #128C7E;
-
-      color: #FFF;
-
-      transform: scale(1.1);
-
-    }
-
   </style>
-
 </head>
-
 <body>
 
-
-
   <header>
-
     <div class="brand">ProNeet VPN</div>
-
+    <button id="btn-tema" class="btn-tema" aria-label="Cambiar tema">
+      <svg class="icono-luna" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <svg class="icono-sol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+    </button>
   </header>
 
-
-
   <main>
-
-    <section class="hero">
-
-      <h1>Navegación Segura y Sin Límites</h1>
-
-      <p>La mejor VPN desarrollada en Ecuador, con soporte para múltiples protocolos.</p>
-
+    <section class="hero anim-up">
+      <h1>Navegación Segura<br>y Sin Límites</h1>
+      <p>La mejor VPN desarrollada en Ecuador. Estabilidad y múltiples protocolos al alcance de tu mano.</p>
       
-
       <a class="download-btn" href="https://play.google.com/store/apps/details?id=com.proneet.vpn" target="_blank">
-
         <i class="fab fa-google-play"></i>
-
         <div class="btn-text">
-
             <span class="btn-line1">DESCARGAR DESDE</span>
-
             <span class="btn-line2">PLAY STORE</span>
-
         </div>
-
       </a>
-
-      
-
       <span class="version-tag">Versión 27.11 build (71)</span>
-
     </section>
 
+    <section class="stats-container anim-up">
+      <div class="stat-box">
+        <div class="stat-number"><span class="stat-counter" data-target="15" data-prefix="+" data-suffix="K">0</span></div>
+        <div class="stat-label">Descargas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number"><span class="stat-counter" data-target="20" data-prefix="+" data-suffix="">0</span></div>
+        <div class="stat-label">Servidores VIP</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number"><span class="stat-counter" data-target="24" data-prefix="" data-suffix="/7">0</span></div>
+        <div class="stat-label">Soporte Activo</div>
+      </div>
+    </section>
 
+    <!-- ESPACIO PREPARADO PARA ANUNCIOS -->
+    <div class="espacio-anuncio"></div>
+
+    <section class="split-block">
+      <div class="block-text anim-left">
+        <h2>¿Quiénes Somos?</h2>
+        <p>ProNeet VPN es un proyecto creado orgullosamente en Ecuador. Nacimos con la visión de ofrecer una herramienta robusta, manteniendo siempre la privacidad y seguridad como prioridad principal.</p>
+        <p>Nuestra aplicación es <strong>apta para todo público</strong>, libre de contenido intrusivo, garantizando una conexión limpia y estable para que disfrutes de tu contenido favorito sin interrupciones.</p>
+      </div>
+      <div class="block-image anim-right">
+        <img src="https://img.freepik.com/free-vector/cyber-data-security-online-concept-illustration-internet-security-information-privacy-protection_1150-37328.jpg" alt="Mascota de Seguridad ProNeet VPN">
+      </div>
+    </section>
+
+    <section class="split-block reverse">
+      <div class="block-text anim-right">
+        <h2>Conexión Profesional</h2>
+        <p>No somos una VPN genérica. Diseñamos nuestra infraestructura para soportar los protocolos más exigentes y garantizar que tu conexión jamás se "duerma".</p>
+        <ul>
+          <li><strong>Múltiples Protocolos:</strong> SSL, SSH, SlowDNS, WebSocket y Payload + SSL.</li>
+          <li><strong>AutoPing:</strong> Mantenimiento de red siempre activa.</li>
+          <li><strong>Hotspot Share:</strong> Comparte tu conexión de red VPN fácilmente.</li>
+        </ul>
+      </div>
+      <div class="block-image anim-left">
+        <img src="https://img.freepik.com/free-vector/vpn-concept-illustration_114360-7302.jpg" alt="Concepto Vectorial ProNeet VPN">
+      </div>
+    </section>
+
+    <!-- ESPACIO PREPARADO PARA ANUNCIOS -->
+    <div class="espacio-anuncio"></div>
 
     <div class="grid-container">
-
-      
-
-      <article class="card">
-
-        <h2>⚙️ Instalación</h2>
-
-        <ul>
-
-          <li>Instala la app desde <strong>Google Play Store</strong>.</li>
-
-          <li>Ábrela y concede los permisos necesarios.</li>
-
-          <li>¡Elige tu servidor y conéctate!</li>
-
-        </ul>
-
+      <article class="card anim-up">
+        <i class="fas fa-rocket card-icon"></i>
+        <h3>Conexión Rápida</h3>
+        <p>Protege y optimiza tu navegación en Wi-Fi o datos móviles. Ideal para juegos y descargas pesadas.</p>
       </article>
 
-
-
-      <article class="card">
-
-        <h2>🌐 ProNeet VPN</h2>
-
-        <p>Desarrollada en Ecuador con múltiples protocolos (SSL, SSH, SlowDNS, WebSocket, Payload + SSL y más). Diseñada para ofrecerte una conexión estable y rápida.</p>
-
+      <article class="card anim-up" style="transition-delay: 0.2s;">
+        <i class="fas fa-mobile-alt card-icon"></i>
+        <h3>Interfaz Moderna</h3>
+        <p>Diseño intuitivo y accesible. Elige fácilmente tu servidor ideal en segundos, sin complicaciones.</p>
       </article>
 
-
-
-      <article class="card">
-
-        <h2>⚡ Conexión Rápida</h2>
-
-        <p>Protege y optimiza tu navegación en Wi-Fi o datos móviles. Nuestra tecnología evita que la conexión se "duerma", garantizando estabilidad para juegos y descargas.</p>
-
+      <article class="card anim-up" style="transition-delay: 0.4s;">
+        <i class="fas fa-users card-icon"></i>
+        <h3>Comunidad</h3>
+        <p>Únete a nuestros grupos oficiales para recibir soporte técnico rápido y directo desde Ecuador.</p>
       </article>
-
-
-
-      <article class="card">
-
-        <h2>🎨 Interfaz Moderna</h2>
-
-        <p>Diseño intuitivo y accesible. Elige fácilmente tu servidor ideal y accede a todas las funciones en segundos, sin complicaciones.</p>
-
-      </article>
-
-
-
-      <article class="card">
-
-        <h2>🛠️ Funciones Pro</h2>
-
-        <ul>
-
-          <li><strong>AutoPing:</strong> Mantiene la red siempre activa.</li>
-
-          <li><strong>Medidor de Datos:</strong> Monitoreo en tiempo real.</li>
-
-          <li><strong>Hotspot Share:</strong> Comparte tu VPN (Wi-Fi).</li>
-
-          <li><strong>Optimización de batería</strong> inteligente.</li>
-
-        </ul>
-
-      </article>
-
-
-
-      <article class="card">
-
-        <h2>🤝 Comunidad</h2>
-
-        <ul>
-
-          <li><strong>Soporte Oficial:</strong> Únete a nuestro grupo para recibir ayuda y novedades.</li>
-
-          <li><strong>Redes Sociales:</strong> Mantente al día con contenido exclusivo.</li>
-
-          <li>(Enlaces disponibles en el menú de la app).</li>
-
-        </ul>
-
-      </article>
-
-
-
     </div>
 
+    <section class="faq-section anim-up">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-container">
 
-
-    <section class="gallery-section">
-
-      <h2>📸 Interfaz de Usuario</h2>
-
-      <div class="gallery-grid">
-
-        <div class="gallery-item">
-
-          <img src="captura1.jpg" alt="Home">
-
-          <span>Principal</span>
-
+         <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cómo funciona la aplicación?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>ProNeet VPN te ayuda a convertir el internet de las redes sociales en internet para todas las aplicaciones. Por ejemplo, si tu operadora solo te da acceso a WhatsApp o redes sociales, la aplicación convierte ese internet para que funcione en todas las aplicaciones.</p>
+          </div>
         </div>
 
-        <div class="gallery-item">
-
-          <img src="captura2.jpg" alt="Options">
-
-          <span>Opciones</span>
-
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿La aplicación está disponible para iPhone (iOS)?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Por el momento, ProNeet VPN solo esta disponible para Android. Hemos centrado nuestros esfuerzos en pulir al máximo la experiencia para este sistema operativo, por lo que aún no contamos con una versión para dispositivos Apple.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cuánto vale el acceso a los servidores Premium?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Disfruta de acceso a todos nuestros servidores Premium con un precio accesible desde tan solo $2.00. Una opción económica pensada en el cliente, para brindarte la mejor experiencia de conexión.</p>
+          </div>
         </div>
 
-        <div class="gallery-item">
-
-          <img src="captura3.jpg" alt="Settings">
-
-          <span>Ajustes</span>
-
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Con qué operadoras móviles es compatible?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Actualmente nuestra plataforma está optimizada para funcionar a la perfección con las principales operadoras de Ecuador, incluyendo Claro, Movistar, CNT y Tuenti. Trabajamos constantemente para mantener la estabilidad en cada una de ellas.</p>
+          </div>
         </div>
 
-        <div class="gallery-item">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Puedo descargarla directamente desde la Play Store?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>¡Por supuesto! Para garantizar tu seguridad y la facilidad de instalación, nuestra aplicación está publicada de forma oficial en la Google Play Store. Solo tienes que buscarla, darle a instalar y estarás listo para navegar.</p>
+          </div>
+        </div>
 
-          <img src="captura4.jpg" alt="Logs">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿La aplicación incluye anuncios molestos?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>No contiene anuncios. Queremos que tu experiencia de navegación sea lo más limpia y profesional posible, por lo que nuestra plataforma está completamente libre de publicidad intrusiva. Además, la aplicación es apta para todo público.</p>
+          </div>
+        </div>
 
-          <span>Registro</span>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿La app avisa cuando mi servidor está a punto de caducar?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, nos encargamos de que nunca te quedes sin conexión por sorpresa. Gracias a nuestro sistema de notificaciones perzonalizadas, recibirás un aviso personalizado un día antes del vencimiento y otro recordatorio el mismo día en que finaliza tu tiempo de acceso.</p>
+          </div>
+        </div>
 
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Puedo compartir el internet de la VPN por Wi-Fi con otros dispositivos?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, con la herramienta Hotspot Share integrada en la app, puedes compartir la conexión protegida y optimizada a través de Wi-Fi con tus amigos, familiares o tus otros dispositivos de manera muy sencilla.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Qué debo hacer si tengo problemas para conectarme?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Si presentas cualquier inconveniente, contamos con soporte técnico oficial y una comunidad activa. Puedes escribirnos directamente por WhatsApp, Telegram o correo electrónico y te ayudaremos con tu problema de inmediato.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Es complicado configurar la aplicación?</span>
+            <i class="fas fa-plus"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Para nada. Hemos diseñado una interfaz muy amigable e intuitiva. Solo debes cambiar al modo premium y elegir el servidor que nesecitas de la lista y presionar el botón de conectar.</p>
+          </div>
         </div>
 
       </div>
-
     </section>
 
+    <!-- ESPACIO PREPARADO PARA ANUNCIOS -->
+    <div class="espacio-anuncio"></div>
 
+    <section class="contact-section reseller-section anim-up">
+      <h2>¿Quieres ser Revendedor Oficial?</h2>
+      <p>Sé parte de nosotros y genera ingresos vendiendo acceso a nuestros servidores Premium. Te ofrecemos servidores de calidad y velocidad rapida, ademas de soporte directo.</p>
+      <div class="contact-buttons">
+        <a href="https://wa.me/593992852026?text=Hola%20quiero%20ser%20revendedor%20oficial%20de%20ProNeet%20VPN" target="_blank" class="btn-contact btn-wa" style="background-color: var(--primary); border-color: var(--primary);">
+          <i class="fas fa-handshake"></i> Solicitar Información
+        </a>
+      </div>
+    </section>
 
-    <div class="legal-area">
+    <section class="gallery-section anim-left">
+      <h2>📸 Interfaz de Usuario</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="captura1.jpg" alt="Home"><span>Principal</span></div>
+        <div class="gallery-item"><img src="captura2.jpg" alt="Options"><span>Opciones</span></div>
+        <div class="gallery-item"><img src="captura3.jpg" alt="Settings"><span>Ajustes</span></div>
+        <div class="gallery-item"><img src="captura4.jpg" alt="Logs"><span>Registro</span></div>
+      </div>
+    </section>
 
+    <section class="contact-section anim-up">
+      <h2>¿Necesitas Ayuda?</h2>
+      <p>Estamos aquí para ayudarte. Si tienes problemas de conexión o dudas sobre la aplicación, envíanos un mensaje y te responderemos de inmediato.</p>
+      <div class="contact-buttons">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=proneetvpn@gmail.com" target="_blank" class="btn-contact btn-email">
+          <i class="fas fa-envelope"></i> Contactar por correo
+        </a>
+        <a href="https://wa.me/593992852026?text=Hola%20necesito%20soporte%20con%20ProNeet%20VPN" target="_blank" class="btn-contact btn-wa">
+          <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <div class="legal-area fade-in">
       <a class="btn-secondary" href="https://terminos.proneet.org/" target="_blank">Términos y Condiciones</a>
-
       <a class="btn-secondary" href="https://politicas.proneet.org/" target="_blank">Política de Privacidad</a>
-
     </div>
-
-
 
   </main>
 
-
-
   <footer>
-
     <h3>Contáctanos</h3>
-
     <div class="social-icons">
-
       <a href="https://wa.me/593992852026?text=Hola%20vengo%20desde%20la%20Página%20de%20ProNeet%20VPN%20y%20quiero%20más%20información%20sobre%20la%20aplicacion." target="_blank"><i class="fab fa-whatsapp"></i></a>
-
       <a href="https://chat.whatsapp.com/GoKO7anWUlO0AcCgWbJXOS" target="_blank"><i class="fas fa-users"></i></a>
-
       <a href="https://t.me/netfre_ec" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-
       <a href="https://t.me/Netfree_Ec" target="_blank"><i class="fab fa-telegram"></i></a>
-
       <a href="http://www.facebook.com/ProNeet27" target="_blank"><i class="fab fa-facebook-f"></i></a>
-
       <a href="http://www.instagram.com/proneet.27" target="_blank"><i class="fab fa-instagram"></i></a>
-
       <a href="https://github.com/ProNeet-27" target="_blank"><i class="fab fa-github"></i></a>
-
     </div>
-
     <div class="footer-copy">
-
-      ProNeet &copy; 2025. Todos los derechos reservados.
-
+      ProNeet &copy; 2026. Todos los derechos reservados.
     </div>
-
   </footer>
 
-
-
   <a href="https://wa.me/+593992852026" class="whatsapp-float" target="_blank">
-
     <i class="fab fa-whatsapp"></i>
-
   </a>
 
+  <script>
+    // 1. TEMA CLARO / OSCURO
+    const btnTema = document.getElementById('btn-tema');
+    const body = document.body;
 
+    if (localStorage.getItem('temaProNeet') === 'oscuro') {
+        body.classList.add('modo-oscuro');
+    }
+
+    btnTema.addEventListener('click', () => {
+        body.classList.toggle('modo-oscuro');
+        localStorage.setItem('temaProNeet', body.classList.contains('modo-oscuro') ? 'oscuro' : 'claro');
+    });
+
+    // 2. LÓGICA DEL ACORDEÓN (FAQ)
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Cierra los demás acordeones abiertos
+        faqQuestions.forEach(item => {
+            if (item !== btn) {
+                item.classList.remove('active');
+                item.nextElementSibling.style.maxHeight = '0';
+            }
+        });
+
+        // Alterna el actual
+        btn.classList.toggle('active');
+        const answer = btn.nextElementSibling;
+        
+        if (btn.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+            answer.style.maxHeight = '0';
+        }
+      });
+    });
+
+    // 3. OBSERVADOR DE SCROLL PARA ANIMACIONES
+    const animElements = document.querySelectorAll('.anim-left, .anim-right, .anim-up, .fade-in');
+    
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const scrollObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    animElements.forEach(el => {
+        scrollObserver.observe(el);
+    });
+
+    // 4. ANIMACIÓN DE CONTADORES (NÚMEROS) - VELOCIDAD PERFECTA
+    const counterObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.stat-counter');
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const prefix = counter.getAttribute('data-prefix') || '';
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    
+                    // Velocidad ajustada para un ritmo perfecto (ni muy rápido, ni muy lento)
+                    const speed = 50; 
+                    let count = 0;
+
+                    const updateCount = () => {
+                        const increment = target / speed;
+                        if (count < target) {
+                            count += increment;
+                            counter.innerText = prefix + Math.ceil(count) + suffix;
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.innerText = prefix + target + suffix;
+                        }
+                    };
+                    updateCount();
+                });
+                observer.unobserve(entry.target); // Dejar de observar para que solo cuente una vez
+            }
+        });
+    }, { threshold: 0.5 }); // Inicia cuando el bloque esté 50% visible
+
+    const statsContainer = document.querySelector('.stats-container');
+    if(statsContainer) {
+        counterObserver.observe(statsContainer);
+    }
+  </script>
 
 </body>
-
 </html>
