@@ -291,7 +291,6 @@
       </div>
     </section>
 
-    <!-- ESPACIO PREPARADO PARA ANUNCIOS -->
     <div class="espacio-anuncio"></div>
 
     <section class="split-block">
@@ -320,7 +319,6 @@
       </div>
     </section>
 
-    <!-- ESPACIO PREPARADO PARA ANUNCIOS -->
     <div class="espacio-anuncio"></div>
 
     <div class="grid-container">
@@ -450,7 +448,6 @@
       </div>
     </section>
 
-    <!-- ESPACIO PREPARADO PARA ANUNCIOS -->
     <div class="espacio-anuncio"></div>
 
     <section class="contact-section reseller-section anim-up">
@@ -464,7 +461,7 @@
     </section>
 
     <section class="gallery-section anim-left">
-      <h2>📸 Interfaz de Usuario</h2>
+      <h2>📸 Interfaz de la Aplicación</h2>
       <div class="gallery-grid">
         <div class="gallery-item"><img src="captura1.jpg" alt="Home"><span>Principal</span></div>
         <div class="gallery-item"><img src="captura2.jpg" alt="Options"><span>Opciones</span></div>
@@ -518,7 +515,7 @@
     const btnTema = document.getElementById('btn-tema');
     const body = document.body;
 
-    if (localStorage.getItem('temaProNeet') === 'oscuro') {
+    if (localStorage.getItem('temaProNeet') !== 'claro') {
         body.classList.add('modo-oscuro');
     }
 
