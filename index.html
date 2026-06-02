@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
-    /* --- VARIABLES CSS --- */
+    /* --- VARIABLES CSS (IDÉNTICAS A LA PÁGINA PRINCIPAL) --- */
     :root {
       --primary: #008855; 
       --primary-glow: rgba(0, 136, 85, 0.2);
@@ -93,7 +93,7 @@
 
     /* --- MAIN (CON TU BLUR INTEGRADO) --- */
     main { 
-      padding: 120px 20px 20px; 
+      padding: 50px 20px 20px; 
       max-width: 1200px; 
       margin: 0 auto; 
       background: var(--hero-blur);
@@ -251,7 +251,7 @@
     }
   </style>
 </head>
-<body>
+<body class="modo-oscuro">
 
   <header>
     <div class="brand">ProNeet VPN</div>
@@ -263,8 +263,8 @@
 
   <main>
     <section class="hero anim-up">
-      <h1>Navegación Segura<br>y Sin Límites</h1>
-      <p>La mejor VPN desarrollada en Ecuador. Estabilidad y múltiples protocolos al alcance de tu mano.</p>
+     <h1>Conecta, Navega y Disfruta<br>Sin Complicaciones</h1>
+      <p>La mejor VPN desarrollada en Ecuador.</p>
       
       <a class="download-btn" href="https://play.google.com/store/apps/details?id=com.proneet.vpn" target="_blank">
         <i class="fab fa-google-play"></i>
@@ -515,13 +515,8 @@
     const btnTema = document.getElementById('btn-tema');
     const body = document.body;
 
-    if (localStorage.getItem('temaProNeet') !== 'claro') {
-        body.classList.add('modo-oscuro');
-    }
-
     btnTema.addEventListener('click', () => {
         body.classList.toggle('modo-oscuro');
-        localStorage.setItem('temaProNeet', body.classList.contains('modo-oscuro') ? 'oscuro' : 'claro');
     });
 
     // 2. LÓGICA DEL ACORDEÓN (FAQ)
